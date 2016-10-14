@@ -6,6 +6,7 @@
 - Rewrite CSS URLs to project root path with default resolver
 - Rewrite CSS URLs with custom URL resolver
 - Track all processed URLs
+- Could be used in combination with `asset-copier`
 
 ## TODO ##
 
