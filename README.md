@@ -2,8 +2,8 @@
 
 ## Features ##
 
-- Designed to be used as dependency for other libraries
-- Rewrite CSS URLs to project root path
+- Designed to be used as dependency for other libraries (sass, less, stylus etc)
+- Rewrite CSS URLs to project root path with default resolver
 - Rewrite CSS URLs with custom URL resolver
 - Track all processed URLs
 
@@ -16,7 +16,7 @@
 ### Installation ###
 
 ```shell
-npm install css-url-rewriter
+npm install css-url-rewriter-ex
 ```
 
 ### Default Resolver ###
