@@ -1,13 +1,11 @@
-# CSS URL Rewrite Tools #
+# CSS URL Rewriter #
 
 ## Features ##
 
 - Designed to be used as dependency for other libraries
-- Rewrite CSS URLs to root path
+- Rewrite CSS URLs to project root path
 - Rewrite CSS URLs with custom URL resolver
 - Track all processed URLs
-- Copy CSS related local assets
-- Covered by unit tests
 
 ## TODO ##
 
@@ -15,9 +13,16 @@
 
 ## Usage ##
 
-### Standard Rewrite ###
+### Installation ###
+
+```shell
+npm install css-url-rewriter
+```
+
+### Default Resolver ###
 
 ```javascript
+var CssUrlRewriter = require('css-url-rewriter');
 var rewriter = new CssUrlRewriter({ root: path.resolve('.') });
 var fixedContent = rewriter.rewrite(filename, originalContent);
 ```
@@ -31,7 +36,7 @@ var fixedContent = rewriter.rewrite(filename, originalContent);
 - return `string` with resolved url to use it
 
 ```javascript
-var CssUrlRewriter = require('css-url-rewrite-tools/lib/CssUrlRewriter');
+var CssUrlRewriter = require('css-url-rewriter');
 
 var rewriter = new CssUrlRewriter({
   root: SystemJS.baseURL,
@@ -44,21 +49,4 @@ var rewriter = new CssUrlRewriter({
 });
 
 var fixedContent = rewriter.rewrite(filename, originalContent);
-```
-
-### Asset Copier ###
-
-```javascript
-var CssUrlRewriter = require('css-url-rewrite-tools/lib/CssUrlRewriter');
-var CssAssetCopier = require('css-url-rewrite-tools/lib/CssAssetCopier');
-
-const rewriter = new CssUrlRewriter();
-const assetCopier = new CssAssetCopier('dist');
-
-rewriter.rewrite(filename, content);
-
-assetCopier.copyAssets(rewriter.getLocalAssetList())
-  .then(() => {
-    console.log('Done!');
-  });
 ```

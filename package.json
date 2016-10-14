@@ -1,22 +1,22 @@
 {
-  "name": "css-url-rewrite-tools",
+  "name": "css-url-rewriter",
   "version": "1.0.0",
-  "description": "CSS URL rewriter and asset copier",
-  "main": "lib/index.js",
+  "description": "CSS URL rewriter",
+  "main": "dist/CssUrlRewriter.js",
   "keywords": [
     "CSS",
     "URL",
     "rewrite"
   ],
   "author": "Artem Butusov <art.sormy@gmail.com>",
-  "homepage": "https://github.com/sormy/css-url-rewrite-tools",
+  "homepage": "https://github.com/sormy/css-url-rewriter",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sormy/css-url-rewrite-tools"
+    "url": "https://github.com/sormy/css-url-rewriter"
   },
   "bugs": {
-    "url": "https://github.com/sormy/css-url-rewrite-tools/issues"
+    "url": "https://github.com/sormy/css-url-rewriter/issues"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
@@ -32,12 +32,11 @@
     "mocha": "^3.1.2"
   },
   "dependencies": {
-    "core-js": "^2.4.1",
-    "fs-extra": "^0.30.0"
+    "core-js": "^2.4.1"
   },
   "scripts": {
-    "clean": "rm -rf lib",
-    "build": "mkdir -p lib && babel src --out-dir lib --ignore spec.js --source-maps",
+    "clean": "rm -rf dist",
+    "build": "mkdir -p dist && babel src --out-dir dist --ignore spec.js --source-maps",
     "lint": "eslint .",
     "test": "mocha --compilers js:babel-register --require 'core-js' 'src/**/*.spec.js'"
   }
