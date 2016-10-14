@@ -2,7 +2,7 @@
   "name": "css-url-rewrite-tools",
   "version": "1.0.0",
   "description": "CSS URL rewriter and asset copier",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "keywords": [
     "CSS",
     "URL",
@@ -36,8 +36,8 @@
     "fs-extra": "^0.30.0"
   },
   "scripts": {
-    "clean": "rm -rf dist",
-    "build": "mkdir -p dist && babel src --out-dir dist --ignore spec.js --source-maps",
+    "clean": "rm -rf lib",
+    "build": "mkdir -p lib && babel src --out-dir lib --ignore spec.js --source-maps",
     "lint": "eslint .",
     "test": "mocha --compilers js:babel-register --require 'core-js' 'src/**/*.spec.js'"
   }

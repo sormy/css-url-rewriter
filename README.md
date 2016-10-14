@@ -31,6 +31,8 @@ var fixedContent = rewriter.rewrite(filename, originalContent);
 - return `string` with resolved url to use it
 
 ```javascript
+var CssUrlRewriter = require('css-url-rewrite-tools/lib/CssUrlRewriter');
+
 var rewriter = new CssUrlRewriter({
   root: SystemJS.baseURL,
   resolver: function (url, filename, options) {
@@ -40,12 +42,16 @@ var rewriter = new CssUrlRewriter({
     }
   }
 });
+
 var fixedContent = rewriter.rewrite(filename, originalContent);
 ```
 
 ### Asset Copier ###
 
 ```javascript
+var CssUrlRewriter = require('css-url-rewrite-tools/lib/CssUrlRewriter');
+var CssAssetCopier = require('css-url-rewrite-tools/lib/CssAssetCopier');
+
 const rewriter = new CssUrlRewriter();
 const assetCopier = new CssAssetCopier('dist');
 
