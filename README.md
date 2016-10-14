@@ -23,7 +23,7 @@ npm install css-url-rewriter-ex
 ### Default Resolver ###
 
 ```javascript
-var CssUrlRewriter = require('css-url-rewriter');
+var CssUrlRewriter = require('css-url-rewriter-ex');
 var rewriter = new CssUrlRewriter({ root: path.resolve('.') });
 var fixedContent = rewriter.rewrite(filename, originalContent);
 ```
@@ -37,7 +37,7 @@ var fixedContent = rewriter.rewrite(filename, originalContent);
 - return `string` with resolved url to use it
 
 ```javascript
-var CssUrlRewriter = require('css-url-rewriter');
+var CssUrlRewriter = require('css-url-rewriter-ex');
 
 var rewriter = new CssUrlRewriter({
   root: SystemJS.baseURL,
