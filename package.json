@@ -1,6 +1,6 @@
 {
   "name": "css-url-rewriter-ex",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "CSS URL rewriter",
   "main": "dist/CssUrlRewriter.js",
   "keywords": [
