@@ -1,3 +1,5 @@
+import 'core-js';
+
 import path from 'path';
 
 export default class CssUrlRewriter {
