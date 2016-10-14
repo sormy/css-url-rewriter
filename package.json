@@ -39,5 +39,11 @@
     "build": "mkdir -p dist && babel src --out-dir dist --ignore spec.js --source-maps",
     "lint": "eslint .",
     "test": "mocha --compilers js:babel-register --require 'core-js' 'src/**/*.spec.js'"
+  },
+  "jspm": {
+    "main": "CssUrlRewriter.js",
+    "directories": {
+      "lib": "dist"
+    }
   }
 }
