@@ -1,5 +1,5 @@
 {
-  "name": "css-url-rewriter",
+  "name": "css-url-rewriter-ex",
   "version": "1.0.0",
   "description": "CSS URL rewriter",
   "main": "dist/CssUrlRewriter.js",
