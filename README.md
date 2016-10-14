@@ -12,13 +12,13 @@
 
 - Add source maps support via `source-map` npm package
 
-## Usage ##
-
-### Installation ###
+## Installation ##
 
 ```shell
 npm install css-url-rewriter-ex
 ```
+
+## Usage ##
 
 ### Default Resolver ###
 
