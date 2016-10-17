@@ -10,7 +10,9 @@
 
 ## TODO ##
 
-- Add source maps support via `source-map` npm package
+- By default this rewriter modify code only inside line, so it has low resolution
+  source map but high resolution source map could be added with `source-map` npm
+  package.
 
 ## Installation ##
 
