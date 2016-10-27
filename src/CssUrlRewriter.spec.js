@@ -226,4 +226,15 @@ describe('CssUrlRewriter', () => {
       },
     ]);
   });
+
+  it('should be able to resolve using publicPath option', () => {
+    const filename = 'node_modules/test-package/test.css';
+    const content = '.test { background: url("image.png") }';
+    const expected = '.test { background: url("http://localhost:8888/path/node_modules/test-package/image.png") }';
+
+    const rewriter = new CssUrlRewriter({ publicPath: 'http://localhost:8888/path/' });
+    const actual = rewriter.rewrite(filename, content);
+
+    expect(actual).to.equal(expected);
+  });
 });

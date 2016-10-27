@@ -12,6 +12,7 @@ export default class CssUrlRewriter {
    *
    * @param {Object}    options
    * @prop  {String}    root
+   * @prop  {String}    publicPath
    * @prop  {Function}  function resolver(url, filename, options)
    *                    - return false to skip resolving
    *                    - return undefined or null to use default resolver
@@ -129,8 +130,9 @@ export default class CssUrlRewriter {
     }
 
     const baseUrl = path.relative(options.root, path.dirname(filename));
+    const relUrl = path.join(baseUrl, url);
 
-    return path.join(baseUrl, url);
+    return options.publicPath ? options.publicPath + relUrl : relUrl;
   }
 
   isAbsoluteUrl(url) {

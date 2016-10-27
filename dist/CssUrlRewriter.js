@@ -26,6 +26,7 @@ var CssUrlRewriter = function () {
    *
    * @param {Object}    options
    * @prop  {String}    root
+   * @prop  {String}    publicPath
    * @prop  {Function}  function resolver(url, filename, options)
    *                    - return false to skip resolving
    *                    - return undefined or null to use default resolver
@@ -172,8 +173,9 @@ var CssUrlRewriter = function () {
       }
 
       var baseUrl = _path2.default.relative(options.root, _path2.default.dirname(filename));
+      var relUrl = _path2.default.join(baseUrl, url);
 
-      return _path2.default.join(baseUrl, url);
+      return options.publicPath ? options.publicPath + relUrl : relUrl;
     }
   }, {
     key: 'isAbsoluteUrl',

@@ -1,6 +1,6 @@
 {
   "name": "css-url-rewriter-ex",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "CSS URL rewriter",
   "main": "dist/CssUrlRewriter.js",
   "keywords": [
@@ -38,12 +38,7 @@
     "clean": "rm -rf dist",
     "build": "mkdir -p dist && babel src --out-dir dist --ignore spec.js --source-maps",
     "lint": "eslint .",
-    "test": "mocha --compilers js:babel-register --require 'core-js' 'src/**/*.spec.js'"
-  },
-  "jspm": {
-    "main": "CssUrlRewriter.js",
-    "directories": {
-      "lib": "dist"
-    }
+    "test": "mocha --compilers js:babel-register --require 'core-js' 'src/**/*.spec.js'",
+    "prepublish": "npm run lint && npm run test && npm run build"
   }
 }

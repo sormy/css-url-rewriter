@@ -10,9 +10,11 @@
 
 ## TODO ##
 
-- By default this rewriter modify code only inside line, so it has low resolution
-  source map but high resolution source map could be added with `source-map` npm
-  package.
+- By default this rewriter modify code only inside lines, so it source code
+  line number is preserved but column could be different, but precise column
+  level mapping for css has no benefits while debugging. But it could be
+  implemented using `source-map` npm package.
+- Implement more precise parser using `css` npm package.
 
 ## Installation ##
 
@@ -24,6 +26,13 @@ npm install css-url-rewriter-ex
 
 ### Default Resolver ###
 
+- `root`: specify path to project root folder which will be used to resolve all
+  relative urls.
+- `publicPath`: set to target public path to prefix relative paths with it.
+  Required for `<link href="blob:..."/>` or `<link href="data:..."/>` style
+  injections for some browsers, for example, for Chrome 54.x (otherwise Chrome
+  will not be able to resolve relative urls).
+
 ```javascript
 var CssUrlRewriter = require('css-url-rewriter-ex');
 var rewriter = new CssUrlRewriter({ root: path.resolve('.') });
@@ -32,7 +41,7 @@ var fixedContent = rewriter.rewrite(filename, originalContent);
 
 ### Custom Resolver ###
 
-- `function resolver(url, filename, option) { ... }`
+- Pass `resolver` option as `function resolver(url, filename, option) { ... }`
 - absolute and data urls are not resolved by default
 - return `false` to skip rewrite
 - return `undefined` or null to use default resolver
