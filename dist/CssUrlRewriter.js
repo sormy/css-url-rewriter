@@ -4,19 +4,35 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+var _values = require('babel-runtime/core-js/object/values');
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _values2 = _interopRequireDefault(_values);
 
-require('core-js');
+var _slicedToArray2 = require('babel-runtime/helpers/slicedToArray');
+
+var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
+
+var _entries = require('babel-runtime/core-js/object/entries');
+
+var _entries2 = _interopRequireDefault(_entries);
+
+var _assign = require('babel-runtime/core-js/object/assign');
+
+var _assign2 = _interopRequireDefault(_assign);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
 
 var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var CssUrlRewriter = function () {
   /* eslint-enable */
@@ -33,11 +49,10 @@ var CssUrlRewriter = function () {
    *                    - return resolved url to use it
    */
   function CssUrlRewriter(options) {
-    _classCallCheck(this, CssUrlRewriter);
-
+    (0, _classCallCheck3.default)(this, CssUrlRewriter);
     this.urlRe = /\/\*[\s\S]*?\*\/|\/\/[^\r\n]*(?:\r\n|\r|\n|$)|([\s,:])url\(\s*("[^"]+"|'[^']+'|[^)]+)\s*\)/ig;
 
-    this.options = Object.assign({ root: '.' }, options);
+    this.options = (0, _assign2.default)({ root: '.' }, options);
     this.reset();
   }
 
@@ -53,7 +68,7 @@ var CssUrlRewriter = function () {
   /* eslint-disable */
 
 
-  _createClass(CssUrlRewriter, [{
+  (0, _createClass3.default)(CssUrlRewriter, [{
     key: 'rewrite',
     value: function rewrite(filename, content) {
       var _this = this;
@@ -108,14 +123,14 @@ var CssUrlRewriter = function () {
     value: function getResolutions() {
       var result = [];
 
-      Object.entries(this.resolutions).forEach(function (_ref) {
-        var _ref2 = _slicedToArray(_ref, 2);
+      (0, _entries2.default)(this.resolutions).forEach(function (_ref) {
+        var _ref2 = (0, _slicedToArray3.default)(_ref, 2);
 
         var filename = _ref2[0];
         var urls = _ref2[1];
 
-        Object.entries(urls).forEach(function (_ref3) {
-          var _ref4 = _slicedToArray(_ref3, 2);
+        (0, _entries2.default)(urls).forEach(function (_ref3) {
+          var _ref4 = (0, _slicedToArray3.default)(_ref3, 2);
 
           var fromUrl = _ref4[0];
           var toUrl = _ref4[1];
@@ -160,7 +175,7 @@ var CssUrlRewriter = function () {
         return result;
       }, {});
 
-      return Object.values(uniqueMap);
+      return (0, _values2.default)(uniqueMap);
     }
   }, {
     key: 'defaultResolver',
@@ -200,7 +215,6 @@ var CssUrlRewriter = function () {
       return url.replace(/[#?].*$/, '');
     }
   }]);
-
   return CssUrlRewriter;
 }();
 

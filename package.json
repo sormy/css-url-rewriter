@@ -1,6 +1,6 @@
 {
   "name": "css-url-rewriter-ex",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "CSS URL rewriter",
   "main": "dist/CssUrlRewriter.js",
   "keywords": [
@@ -22,23 +22,26 @@
     "babel-cli": "^6.16.0",
     "babel-eslint": "^7.0.0",
     "babel-plugin-transform-class-properties": "^6.16.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-latest": "^6.16.0",
     "babel-register": "^6.16.3",
     "chai": "^3.5.0",
-    "eslint": "^3.7.1",
-    "eslint-config-airbnb": "^12.0.0",
+    "eslint": "^3.9.1",
+    "eslint-config-airbnb-base": "^9.0.0",
     "eslint-plugin-import": "^2.0.0",
     "eslint-plugin-mocha": "^4.6.0",
-    "mocha": "^3.1.2"
+    "mkdirp": "^0.5.1",
+    "mocha": "^3.1.2",
+    "rimraf": "^2.5.4"
   },
   "dependencies": {
-    "core-js": "^2.4.1"
+    "babel-runtime": "^6.18.0"
   },
   "scripts": {
-    "clean": "rm -rf dist",
-    "build": "mkdir -p dist && babel src --out-dir dist --ignore spec.js --source-maps",
+    "clean": "rimraf dist",
+    "build": "mkdirp dist && babel src --out-dir dist --ignore spec.js --source-maps",
     "lint": "eslint .",
-    "test": "mocha --compilers js:babel-register --require 'core-js' 'src/**/*.spec.js'",
+    "test": "mocha --compilers js:babel-register 'src/**/*.spec.js'",
     "prepublish": "npm run lint && npm run test && npm run build"
   }
 }
